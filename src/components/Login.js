@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
+mport React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+
 function Login({ setIsLoggedIn }) {
-  const history = useHistory();
   const [formData, setFormData] = useState({
     username: "",
     password: "",
   });
+  const history = useHistory();
 
   function handleChange(e) {
     setFormData({
@@ -17,16 +20,14 @@ function Login({ setIsLoggedIn }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-
+    // Perform login action here
     setIsLoggedIn(true);
-
-    // after logging the user in, redirect to the home page!
+    // Redirect to home page after successful login
     history.push("/");
   }
 
   return (
     <form onSubmit={handleSubmit}>
-      <h1>Login</h1>
       <input
         type="text"
         name="username"
@@ -39,7 +40,7 @@ function Login({ setIsLoggedIn }) {
         value={formData.password}
         onChange={handleChange}
       />
-      <button type="submit">Login</button>
+      <button type="submit">Log In</button>
     </form>
   );
 }
